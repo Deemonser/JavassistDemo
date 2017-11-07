@@ -11,9 +11,9 @@ import java.lang.annotation.Annotation
 
 
 public class BusHelper {
-    final static String OkBusAnnotation = "com.app.annotation.javassist.Bus"
-    final static String OkBusRegisterAnnotation = "com.app.annotation.javassist.BusRegister"
-    final static String OkBusUnRegisterAnnotation = "com.app.annotation.javassist.BusUnRegister"
+    final static String OkBusAnnotation = "com.deemons.bus.annotation.Bus"
+    final static String OkBusRegisterAnnotation = "com.deemons.bus.annotation.BusRegister"
+    final static String OkBusUnRegisterAnnotation = "com.deemons.bus.annotation.BusUnRegister"
     static def ON_CREATE = ['onCreate', "onActivityCreated"] as String[]
     static def ON_DESTROY = 'onDestroy'
 
@@ -75,7 +75,7 @@ public class BusHelper {
      */
     static String getRegisterEventMethodStr(BusInfo mBusInfo) {
         String CreateStr = "";
-        mBusInfo.clazz.addInterface(mBusInfo.clazz.classPool.get("com.base.event.Event"));//为当前的类添加时间处理的接口
+        mBusInfo.clazz.addInterface(mBusInfo.clazz.classPool.get("com.deemons.bus.Event"));//为当前的类添加时间处理的接口
         for (int i = 0; i < mBusInfo.getMethods().size(); i++) {
             MethodInfo methodInfo = mBusInfo.getMethods().get(i).getMethodInfo();
             Annotation mAnnotation = mBusInfo.getAnnotations().get(i)

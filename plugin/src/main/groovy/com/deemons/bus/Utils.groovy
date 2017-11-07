@@ -3,9 +3,6 @@ package com.deemons.bus
 import javassist.ClassPool
 import javassist.CtMethod
 
-/**
- * Created by baixiaokang on 16/11/16.
- */
 
 public class Utils {
     static String BusErr = "大哥注意哦，非Activity和Fragment中使用@BusRegister必须和@BusUnRegister一起使用，才能自动生成注册和反注册代码"
@@ -20,8 +17,8 @@ public class Utils {
         pool.importPackage(BusHelper.OkBusRegisterAnnotation);
         pool.importPackage(BusHelper.OkBusUnRegisterAnnotation);
         pool.importPackage("android.os.Bundle");
-        pool.importPackage("com.base.event.OkBus")
-        pool.importPackage("com.base.event.Event")
+        pool.importPackage("com.deemons.bus.OkBus")
+        pool.importPackage("com.deemons.bus.Event")
         pool.importPackage("android.os.Message")
     }
 

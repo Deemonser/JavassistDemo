@@ -53,6 +53,7 @@ public class JavassistTransform extends Transform {
                     //这里处理自定义的逻辑
                     MyInject.injectDir(it.file.getAbsolutePath(), "com", project)
 
+                    // 重命名输出文件（同目录copyFile会冲突）
                     String outputFileName = it.name.replace(".jar", "") + '-' + it.file.path.hashCode()
                     def output = outputProvider.getContentLocation(outputFileName, it.contentTypes, it.scopes, Format.JAR)
                     FileUtils.copyFile(it.file, output)

@@ -3,21 +3,41 @@
 buildscript {
     repositories {
         jcenter()
+        maven {
+            url uri('repo')
+        }
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.0.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+//        classpath 'com.deemons.bus:okBus:1.0.0'
+        classpath 'com.novoda:bintray-release:+'
+
     }
 }
 
 allprojects {
     repositories {
         jcenter()
+        google()
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+
+//开源库中有中文注释,添加下面这些
+allprojects {
+    tasks.withType(Javadoc) {
+        options {
+            encoding "UTF-8"
+            charSet 'UTF-8'
+            links "http://docs.oracle.com/javase/7/docs/api"
+        }
+    }
 }

@@ -5,15 +5,12 @@ import javassist.CtMethod
 import javassist.CtNewMethod
 import org.gradle.api.Project;
 
-/**
- * Created by baixiaokang on 16/11/15.
- */
 
 public class LogTimeHelper {
 
     final static String prefix = "\nlong startTime = System.currentTimeMillis();\n";
     final static String postfix = "\nlong endTime = System.currentTimeMillis();\n";
-    final static String LogTimeAnnotation = "com.app.annotation.javassist.LogTime";
+    final static String LogTimeAnnotation = "com.deemons.bus.annotation.LogTime";
 
     //  时间log先注释掉               if (mAnnotation.annotationType().canonicalName.equals(LogTimeHelper.LogTimeAnnotation))
 //                                    LogTimeHelper.initLogTime(project, methodName, className, ctmethod, c, path);
