@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'com.deemons.bus'
+apply plugin: "com.deemons.bus"
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
@@ -31,4 +31,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+//    implementation project(':eventbus')
+    compile 'com.deemons.bus:okBus:0.1.0'
 }

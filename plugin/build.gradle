@@ -1,5 +1,7 @@
 apply plugin: 'groovy'
 apply plugin: 'maven'
+//apply plugin: "com.gradle.plugin-publish"//使用发布到远程的插件
+
 dependencies {
     compile gradleApi() //gradle sdk
     compile localGroovy() //groovy sdk
@@ -11,7 +13,7 @@ repositories {
     jcenter()
 }
 
-
+//发布到本地
 uploadArchives {
     repositories.mavenDeployer {
         repository(url: uri('../repo')) //仓库的路径，此处是项目根目录下的 repo 的文件夹
@@ -22,39 +24,37 @@ uploadArchives {
 }
 
 
-//for upload
-//ext {
-//
-//    publishedGroupId = rootProject.publishedGroupId //引用时的第一部分
-//    artifact = 'okBus'//引用时的第二部分
-//    libraryVersion = '1.0.0'//引用时的第三部分
-//    libraryName = 'okBus'//本module名称
-//    bintrayName = 'okBus'//Jcenter 上显示的项目名
-//
-//
-//
-//    bintrayRepo = rootProject.bintrayRepo
-//    libraryDescription = rootProject.libraryDescription
-//
-//
-//
-//    siteUrl =rootProject.siteUrl
-//    gitUrl = rootProject.gitUrl
-//
-//    developerId = rootProject.developerId
-//    developerName =rootProject.developerName
-//    developerEmail = rootProject.developerEmail
-//
-//    licenseName = rootProject.licenseName
-//    licenseUrl = rootProject.licenseUrl
-//    allLicenses = rootProject.allLicenses
+//发布到远程
+//buildscript {
+//    repositories {
+//        maven {
+//            url "https://plugins.gradle.org/m2/"
+//        }
+//    }
+//    dependencies {
+//        classpath "com.gradle.publish:plugin-publish-plugin:0.9.7"
+//    }
 //}
 //
-//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
-
-//group = 'com.deemons.bus'  // 组名
-//version = '1.0.0' // 版本
+//repositories {
+//    mavenCentral()
+//    jcenter()
+//}
 //
-//// 应用插件
-//apply from: '../bintray.gradle'
+//version = "1.0.0"    //配置插件的版本号
+//group = "com.deemons.gradlePlugin"   //插件的群组，插件的classpath会用到
+//
+//pluginBundle {
+//
+//    website = 'http://www.gradle.org/'
+//    vcsUrl = 'https://github.com/gradle/gradle'
+//    description = 'javassist for okbus'  //插件描述
+//    tags = ['okbus', 'javassist']  //插件的tag。可以通过这个在插件门户上搜索
+//
+//    plugins {
+//        greetingsPlugin {
+//            id = 'com.deemons.bus'   //插件的id，到时候apply的插件id
+//            displayName = 'OkBus plugin'
+//        }
+//    }
+//}

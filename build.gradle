@@ -4,8 +4,10 @@ buildscript {
     repositories {
         jcenter()
         maven {
-            url uri('repo')
+//            url("repo")//本地依赖
+            url "https://plugins.gradle.org/m2/"
         }
+
         google()
     }
     dependencies {
@@ -13,8 +15,12 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath 'com.novoda:bintray-release:0.7.0'
+
+        //本地依赖
 //        classpath 'com.deemons.bus:okBus:1.0.0'
-        classpath 'com.novoda:bintray-release:+'
+        //远程依赖
+        classpath "gradle.plugin.com.deemons.gradlePlugin:plugin:1.0.0"
 
     }
 }
