@@ -3,21 +3,52 @@ package com.deemons.bus
 import javassist.ClassPool
 import javassist.CtClass
 import javassist.CtMethod
+import javassist.JarClassPath
 import javassist.bytecode.DuplicateMemberException
 import org.gradle.api.Project
 
 import java.lang.annotation.Annotation
 
 public class MyInject {
-    private final static ClassPool pool = ClassPool.getDefault()
+
+    static def classPathList = new ArrayList<JarClassPath>()
+
+    public static void removeClassPath(Project project) {
+        if (classPathList != null) {
+            def pool = ClassPool.getDefault()
+            classPathList.each {
+                try {
+
+                    pool.removeClassPath(it)
+                } catch (Exception e) {
+                    project.logger.error(e.getMessage())
+                }
+            }
+            classPathList.clear()
+        }
+    }
+
+
+    public static void injectJar(String path, String packageName, Project project) {
+        ClassPool pool = ClassPool.getDefault()
+        def classPath = new JarClassPath(path)
+        classPathList.add(classPath)
+        pool.appendClassPath(classPath)
+
+        //project.android.bootClasspath 加入android.jar，否则找不到android相关的所有类
+        pool.appendClassPath(project.android.bootClasspath[0].toString());
+        Utils.importBaseClass(pool);
+    }
+
 
     public static void injectDir(String path, String packageName, Project project) {
+        ClassPool pool = ClassPool.getDefault()
         pool.appendClassPath(path)
+
         //project.android.bootClasspath 加入android.jar，否则找不到android相关的所有类
         pool.appendClassPath(project.android.bootClasspath[0].toString());
         Utils.importBaseClass(pool);
         File dir = new File(path)
-
         if (!dir.isDirectory()) {
             return;
         }

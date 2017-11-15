@@ -3,6 +3,7 @@ package com.deemons.javassistdemo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
 import com.deemons.bus.OkBus;
 import com.deemons.bus.annotation.Bus;
 
@@ -20,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void onClick() {
 
-        OkBus.getInstance().onStickyEvent(EventTags.TEST);
 
+        OkBus.getInstance().onStickyEvent(EventTags.TEST);
     }
 
     @Bus(value = EventTags.TEST)

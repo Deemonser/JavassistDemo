@@ -6,10 +6,9 @@ import javassist.bytecode.annotation.Annotation
 import org.gradle.api.Project
 
 /**
- * Created by baixiaokang on 16/11/14.
+ * .
  * 事件信息类
  */
-
 public class BusInfo {
 
     Project          project//保留当前工程的引用

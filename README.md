@@ -16,7 +16,7 @@ buildscript {
 
     dependencies {
          //...
-        classpath "gradle.plugin.com.deemons.gradlePlugin:plugin:1.0.0"
+        classpath "gradle.plugin.com.deemons.gradlePlugin:plugin:1.1.0"
     }
 }
 

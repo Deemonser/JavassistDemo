@@ -20,7 +20,7 @@ buildscript {
         //本地依赖
 //        classpath 'com.deemons.bus:okBus:1.0.0'
         //远程依赖
-        classpath "gradle.plugin.com.deemons.gradlePlugin:plugin:1.0.0"
+        classpath "gradle.plugin.com.deemons.gradlePlugin:plugin:1.1.0"
 
     }
 }

@@ -7,7 +7,7 @@ dependencies {
     compile localGroovy() //groovy sdk
 
     compile 'com.android.tools.build:gradle:3.0.0'
-    compile 'org.javassist:javassist:3.20.0-GA'
+    compile 'org.javassist:javassist:3.22.0-GA'
 }
 repositories {
     jcenter()
@@ -41,7 +41,7 @@ uploadArchives {
 //    jcenter()
 //}
 //
-//version = "1.0.0"    //配置插件的版本号
+//version = "1.1.0"    //配置插件的版本号
 //group = "com.deemons.gradlePlugin"   //插件的群组，插件的classpath会用到
 //
 //pluginBundle {
