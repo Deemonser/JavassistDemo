@@ -1,5 +1,3 @@
-这是一个练习使用 Javassist 的 Demo。
-
 利用 Javassist 做了一个 OkBus。简化 EvenetBus 的注册 与 注销功能，并将此插件发布到远程 Maven 库，方便使用。
 <br>
 #### 配置
